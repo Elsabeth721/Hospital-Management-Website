@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kadisco Hospital</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <style>
+        :root{
+            --green:#16a085;
+            --black:#444;
+            --light-color:#111;
+            --box-shadow:.5rem .5rem 0 rgba(22, 160, 133, .2);
+            --text-shadow:.4rem .4rem 0 rgba(0, 0, 0, .2);
+            --border:.2rem solid var(--green);
+             }
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            text-transform: capitalize;
+            transition:all .2s ease-out;
+            text-decoration: none;
+          
+        }
+        html{
+            overflow-x: hidden;
+        
+            scroll-behavior: smooth;
+        }
+        section:nth-child(even){
+            background: #f5f5f5;
+        }
+        .header{
+            padding:1rem 9%;
+            position:fixed;
+            top:0;
+            left:0;
+            right:0;
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgb(31, 215, 154);
+        }
+        .header .logo{
+            font-size: 2.5rem;
+            color: var(--black);
+        }
+        .header .navbar a{
+            font-size: 1.7rem;
+            color:var(--light-color);
+            margin-left:2rem;
+
+        }
+        .header .navbar a:hover{
+            color:brown;
+        }
+        .home{
+            display: flex;
+            align-items: center;
+            
+            padding-top: 13rem;
+            padding-left: 5rem;
+            padding-right: 5rem;
+        }
+        .home .image{
+            flex:1 1 39rem;
+        }
+        .home .image img{
+            width:100%;
+        }
+        .home .home-content h2{
+            font-size: 4.5rem;
+            color:var(--black);
+            line-height:1.8;
+            text-shadow:var(--text-shadow);
+        }
+        .home .home-content p{
+            font-size:1.7rem;
+            color:var(--light-color);
+            line-height: 1.8;
+            padding:1rem 0;
+        }
+        .button{
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem;
+            border:var(--border);
+            border-radius: 0.5rem;
+            box-shadow:var(--box-shadow);
+            color:var(--green);
+            cursor: pointer;
+            font-size: 1.7rem;
+            background-color: #fff;
+        }
+        .button i{
+            padding: 0.7rem 1rem;
+            border-radius: 0.5rem;
+            background-color: var(--green);
+            color:#fff;
+            margin-left: 0.5rem;
+        }
+        .button:hover{
+            background-color: var(--green);
+            color: #fff;
+        }
+        .button:hover i{
+            background-color: #fff ;
+            color:var(--green);
+            margin-left: 1rem;
+        }
+        .box-container{
+            display:flex;
+            justify-content: space-evenly;
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        .box-container .box{
+            border: var(--border);
+            box-shadow: var(--box-shadow);
+            border-radius: 0.5rem;
+            text-align:center;
+            padding:2.5rem;
+        }
+        .box-container.box i{
+            font-size: 4.5rem;
+            color: var(--green);
+            padding-bottom: 0.7rem;
+        }
+        .box-container .box h3{
+            font-size: 4.5rem;
+            color: var(--black);
+            padding:3rem 0;
+            text-shadow: var(--text-shadow);
+        }
+        .box-container .box p{
+            font-size: 1.7rem;
+            color: var(--light-color);
+        }
+        .about-us .about-us-content{
+            display:flex;
+            align-items: center;
+
+        }
+        .about-us .about-us-content .about-us-image{
+            flex:1 1 40rem;
+        }
+        .about-us .about-us-content .about-us-image img{
+            width: 100%;
+        }
+        .about-us .about-us-content .content{
+            flex:1 1 40rem;
+        }
+        .about-us .about-us-content .content h3{
+            color: var(--black);
+            text-shadow: var(--text-shadow);
+            font-size: 4rem;
+            line-height: 1.8;
+        }
+        .about-us .about-us-content .content p{
+            color: var(--light-color);
+            padding:1rem 0;
+            font-size: 1.5rem;
+            line-height: 1.8;
+        }
+        .heading-title{
+            text-align: center;
+            padding-bottom: 2rem;
+            text-transform: uppercase;
+            text-shadow: var(--text-shadow);
+            color: var(--black);
+            font-size: 5rem;
+            letter-spacing: 0.4rem;
+        }  
+        .heading-title span{
+            color:var(--green);
+        }
+        .service .boxs-container{
+            display:grid;
+            grid-template-columns: auto auto auto;
+            gap:2rem;
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+        .service .boxs-container .box{
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: var(--box-shadow);
+            border:var(--border);
+            padding: 2.5rem;
+        }
+        .service .boxs-container .box i{
+            color:var(--green);
+            font-size: 5rem;
+            padding-bottom: 2.5rem;
+        }
+        .service .boxs-container .box h3{
+            color: var(--light-color);
+            font-size: 2.5rem;
+            padding: 1rem 0;
+        }
+        .service .boxs-container .box p{
+            color: var(--black);
+            font-size: 1.4rem;
+            line-height: 2;
+        }
+        .doctor .boxs-container{
+            display:grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 2rem;
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+        .doctor .boxs-container .box{
+            text-align: center;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            border:var(--border);
+            box-shadow: var(--box-shadow);
+            padding: 2.5rem;
+            margin: 2rem 1rem;
+    
+        }
+        .doctor .boxs-container .box img{
+            height: 20rem;
+            border: var(--border);
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .doctor .boxs-container .box h3{
+            color: var(--black);
+            font-size: 2.5rem;
+        }
+        .doctor .boxs-container .box span{
+            color: var(--green);
+            font-size: 1.5rem;
+        }
+        .doctor .boxs-container .box .contact{
+            padding-top: 2rem;
+        }
+        .doctor .boxs-container .box .contact a{
+            height:5rem;
+            width: 5rem;
+            color: var(--green);
+            font-size: 3rem;
+            margin: 3rem;
+        }
+        .doctor .boxs-container .box .contact a:hover{
+            background-color: var(--green);
+            color: #fff;
+            box-shadow: var(--box-shadow);
+        }
+        .consult .consult-content{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .consult .consult-content .image{
+            flex:1 1 45rem;
+        }
+        .consult .consult-content .image img{
+            width:100%;
+        }
+        .consult .consult-content form{
+            flex:1 1 45rem;
+            background-color: #fff;
+            border: var(--border);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            padding: 1rem;
+            border-radius:0.5rem;
+            margin-left:30px;
+            margin-bottom:30px;
+        }
+        .consult .consult-content form h3{
+            color: var(--black);
+            padding-bottom: 1rem;
+            font-size: 3rem;
+        }
+        .consult .consult-content form .box{
+            width: 100%;
+            margin:2rem 0;
+            border-radius: 0.5rem;
+            border: var(--border);
+            font-size: 1.5rem;
+            color: var(--black);
+            padding-bottom:0.5rem; 
+           
+        }
+        .consult .consult-content form .button{
+            padding:1rem 4rem;
+        }
+        .client .client-container{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 2rem;
+        }
+        .client .client-container .box{
+            border: var(--border);
+            box-shadow: var(--box-shadow);
+            border-radius: 0.5rem;
+            padding: 2.5rem;
+            background-color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .client .client-container .box img{
+            height:10rem;
+            width: 10rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border:5rem solid #fff;
+        }
+        .client .client-container .box h3{
+            color: #fff;
+            font-size: 2rem;
+            padding: 5rem 0;
+        }
+        .client .client-container .box .client-text{
+            color: var(--light-color);
+            line-height: 1.8rem;
+            font-size: 1.6rem;
+            padding-top: 4rem;
+        }
+        .blogs .boxs-container{
+            display:grid;
+            grid-template-columns: auto auto auto;
+            gap:2rem;
+        }
+        .blogs .boxs-container .box{
+            border: var(--border);
+            box-shadow: var(--box-shadow);
+            border-radius: 0.5rem;
+            padding:2rem;
+        }
+        .blogs .boxs-container .box .image{
+            height: 20rem;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        .blogs .boxs-container .box .image img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        .blogs .boxs-container .box:hover .image img{
+            transform: scale(1.5);
+        }
+        .blogs .boxs-container .box .content h3{
+            color: var(--black);
+            font-size: 3rem;
+        }
+        .blogs .boxs-container .box .content p{
+            color: var(--light-color);
+            font-size: 1.5rem;
+            line-height: 1.8;
+            padding:1rem 0;
+        }
+        .footer .boxs-container{
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 2rem;
+            padding: 5rem;
+        }
+        .footer .boxs-container .box h4{
+            font-size: 2.5rem;
+            color: var(--black);
+            padding: 1rem 0;
+        }
+        .footer .boxs-container .box a{
+            display: block;
+            font-size: 1.5rem;
+            color: var(--light-color);
+            padding: 1rem 0;
+        }
+        .footer .boxs-container .box a i {
+            padding-right: 1rem;
+            color: var(--green);
+        }
+        .footer .boxs-container .box a:hover i{
+            padding-right: 2rem;
+
+        }
+        .footer .done {
+            padding: 1rem;
+            padding-top: 2rem;
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 2rem;
+            color: var(--light-color);
+            border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a class="logo"><strong>KADISCO</strong>GENERAL HOSPITAL</a>
+        <nav class="navbar">
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Service</a>
+            <a href="">Doctors</a>
+            <a href="">Appointment</a>
+            <a href="">Review</a>
+            <a href="">Blogs</a>
+        </nav>
+    </header>
+    <section class="home">
+        <div class="image">
+            <img src="image/home-img.svg" alt="">
+        </div>
+        <div class="home-content">
+            <h2>we take care of your healthy life</h2>
+            <p>a person who has good physical health is likely to have bodily function and processes working at their peak.</p>
+            <a href="" class="button">Appointment <i class="glyphicon glyphicon-chevron-right"></i></a>
+        </div>
+    </section>
+    <section class="box-container">
+        <div class="box">
+            <i class="glyphicon glyphicon-user" style="color: #37c86a;"></i>
+            <h3>100+</h3>
+            <p>doctors at work</p>
+        </div>
+        <div class="box">
+            <i class="glyphicon glyphicon-users" style="color: #37c86a;"></i>
+            <h3>1000+</h3>
+            <p>satisfied patient</p>
+        </div>
+        <div class="box">
+            <i class="glyphicon glyphicon-procedure" style="color: #37c86a;"></i>
+            <h3>200+</h3>
+            <p>bed facility</p>
+        </div>
+        <div class="box">
+            <i class="bi bi-hospital" style="color: #37c86a;"></i>
+            <h3>5+</h3>
+            <p>available hospitals</p>
+        </div>
+    </section>
+    <section class="about-us">
+        <h1 class="heading-title"><span>about</span>us</h1>
+        <div class="about-us-content">
+            <div class="about-us-image">
+                <img src="image/about-img.svg" alt="">
+            </div>
+            <div class="content">
+                <h2>Take The World's Best Quality Treatment</h2>
+                <p>Welcome to Kadisco General Hospital! We are a leading healthcare institution dedicated to providing exceptional medical care and compassionate service to our patients. With a team of highly skilled and experienced healthcare professionals, state-of-the-art facilities, and a patient-centered approach, we strive to deliver the highest standard of healthcare excellence.</p>
+                <p> At Kadisco General Hospital, we understand that each patient is unique, and we are committed to tailoring our services to meet their specific needs. Our multidisciplinary team of doctors, nurses, and support staff work collaboratively to ensure that every patient receives personalized and comprehensive care. Whether you require routine medical services, specialized treatments, or emergency care, our dedicated team is here to guide you through every step of your healthcare journey.</p>
+                <a href="" class="button">Read More <i class="glyphicon glyphicon-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+    <section class="service">
+        <h1 class="heading-title">our<span>service</span></h1>
+        <div class="boxs-container">
+            <div class="box">
+                <i></i>
+                <h3>checkup</h3>
+                <p>Schedule your comprehensive checkup to ensure optimal health and well-being</p>
+                <a href="" class="button">Read More <i class="glyphicon glyphicon-chevron-right"></i></a>       
+            </div>
+            <div class="box">
+                <i></i>
+                <h3>24/7 Ambulance</h3>
+                <p>Our efficient and responsive ambulance services are available 24/7 to provide prompt and reliable transportation in times of medical emergencies.</p>
+                <a href="" class="button">Read More <i class="glyphicon glyphicon-chevron-right"></i></a>       
+            </div>
+            <div class="box">
+                <i></i>
+                <h3>Expert doctor</h3>
+                <p>our team of highly experienced and specialized doctors is dedicated to delivering top-quality medical care, utilizing their expertise to provide personalized treatment plans tailored to your specific needs.</p>
+                <a href="" class="button">Read More <i class="glyphicon glyphicon-chevron-right"></i></a>       
+            </div>
+            <div class="box">
+                <i></i>
+                <h3>Medicine</h3>
+                <p>we maintain a well-stocked pharmacy with a wide range of medications, ensuring easy accessibility to essential medicines to support your healing and recovery.</p>
+                <a href="" class="button">Read More <i class="glyphicon glyphicon-chevron-right"></i></a>       
+            </div>
+            <div class="box">
+                <i></i>
+                <h3>Bed facility</h3>
+                <p>Our hospital boasts comfortable and well-equipped patient rooms, providing a restful and conducive environment for your recovery and ensuring your comfort during your stay with us.</p>
+                <a href="" class="button">Read More <i class="glyphicon glyphicon-chevron-right"></i></a>       
+            </div>
+            <div class="box">
+                <i></i>
+                <h3>Total care</h3>
+                <p>we are committed to providing comprehensive and holistic care, addressing all aspects of your health and well-being, to ensure that you receive the highest level of total care throughout your healthcare journey.</p>
+                <a href="" class="button">Read More <i class="glyphicon glyphicon-chevron-right"></i></a>       
+            </div>
+        </div>
+    </section>
+    <selection class="doctor">
+        <h1 class="heading-title">our <span>doctors</span></h1>
+        <div class="boxs-container">
+            <div class="box">
+                <img src="image/d1.jpg" alt="">
+                <h3>Yemaryam</h3>
+                <span>Expert doctor</span>
+                <div class="contact">
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-telegram"></i></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="image/d2.jpg" alt="">
+                <h3>FikreHiwot</h3>
+                <span>Expert doctor</span>
+                <div class="contact">
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-telegram"></i></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="image/d4.jpg" alt="">
+                <h3>FikreSlasie</h3>
+                <span>Expert doctor</span>
+                <div class="contact">
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-telegram"></i></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="image/d3.jpg" alt="">
+                <h3>Arsema</h3>
+                <span>Expert doctor</span>
+                <div class="contact">
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-telegram"></i></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="image" alt="">
+                <h3>Arsema</h3>
+                <span>Expert doctor</span>
+                <div class="contact">
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-telegram"></i></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="image" alt="">
+                <h3>Arsema</h3>
+                <span>Expert doctor</span>
+                <div class="contact">
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-telegram"></i></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="image" alt="">
+                <h3>Arsema</h3>
+                <span>Expert doctor</span>
+                <div class="contact">
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-telegram"></i></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="image" alt="">
+                <h3>Arsema</h3>
+                <span>Expert doctor</span>
+                <div class="contact">
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-telegram"></i></a>
+                </div>
+            </div>       
+        </div>
+    </selection>
+    <section class="consult">
+        <h1 class="heading-title">consult<span>NOW</span></h1>
+        <div class="consult-content">
+            
+            <form action="">
+                <h3>make appointment</h3>
+                <input type="text" placeholder="full name" class="box">
+                <input type="number" placeholder="phone-number" class="box">
+                <input type="email" placeholder="email" class="box"> 
+                <input type="date" class="box">
+                <input type="submit" value="consult now" class="button">
+            </form>
+            <div class="image">
+                <img src="image/appointment-img.svg" alt="">
+            </div>
+        </div>
+    </section>
+    <section class="client">
+        <div class="client-container">
+            <div class="box">
+                <img src="image/smiling-2362136_1280.jpg" alt="">
+                <h3>Kadisco gjhhklkjiojoio</h3>
+                <p class="client-text">gguihik</p>
+            </div>
+            
+        
+            <div class="box">
+                <img src="image/smiling-2362136_1280.jpg" alt="">
+                <h3>Kadisco</h3>
+                <p class="client-text">gguihik</p>
+            </div>
+   
+        
+            <div class="box">
+                <img src="image/smiling-2362136_1280.jpg" alt="">
+                <h3>Kadisco</h3>
+                <p class="client-text">gguihik</p>
+            </div>
+       
+        </div>
+    </section>
+    <section class="blogs">
+        <h1 class="heading-title">our<span>BLOGS</span></h1>
+        <div class="boxs-container">
+            <div class="box">
+                <div class="image">
+                    <img src="image/blog1.jpg" alt="">
+                </div>
+                <div class="content">
+                    <a href=""><i></i>20 september, 2023</a>
+                </div>
+                <h3>"The Importance of Regular Check-ups: Taking Charge of Your Health"</h3>
+                <p>Regular check-ups are a vital part of maintaining your overall well-being. In our latest blog post, we discuss the significance of routine medical examinations and how they can help detect and prevent potential health issues before they escalate. Learn why staying proactive with your health is key to a happier and healthier life.</p>
+                <a href="" class="button">Read More <i class="glyphicon glyphicon-chevron-right"></i></a> 
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="image/download.png" alt="">
+                </div>
+                <div class="content">
+                    <a href=""><i></i>20 september, 2023</a>
+                </div>
+                <h3>"Navigating the World of Telemedicine: The Future of Healthcare"</h3>
+                <p>Telemedicine has revolutionized the healthcare industry, providing convenient access to medical professionals from the comfort of your own home. In this blog, we explore the advantages of telemedicine, including reduced wait times, improved accessibility, and enhanced patient-doctor communication. Discover how this innovative approach to healthcare is shaping the future.</p>
+                <a href="" class="button">Read More <i class="glyphicon glyphicon-chevron-right"></i></a> 
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="image/NUTRITION.png" alt="">
+                </div>
+                <div class="content">
+                    <a href=""><i></i>20 september, 2023</a>
+                </div>
+                <h3>"The Role of Nutrition in Recovery: Fueling Your Body for Healing"</h3>
+                <p>Proper nutrition plays a vital role in the recovery process for patients. Our blog post highlights the importance of a well-balanced diet and its impact on healing and rehabilitation. From essential nutrients to dietary guidelines, we provide valuable insights on how to optimize your nutritional intake to support a speedy and successful recovery.</p>
+                <a href="" class="button">Read More <i class="glyphicon glyphicon-chevron-right"></i></a> 
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="image/download (1).png" alt="">
+                </div>
+                <div class="content">
+                    <a href=""><i></i>20 september, 2023</a>
+                
+                <h3>"Understanding Mental Health: Breaking the Stigma, Promoting Healing"</h3>
+                <p>Mental health is just as crucial as physical health, yet it is often stigmatized and overlooked. Our blog delves into the various aspects of mental health, including common disorders, coping mechanisms, and available treatment options. Join us as we work to break down barriers, promote open conversations, and advocate for positive mental well-being.</p>
+                <a href="" class="button">Read More <i class="glyphicon glyphicon-chevron-right"></i></a>
+                </div> 
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="" alt="">
+                </div>
+                <div class="content">
+                    <a href=""><i></i>20 september, 2023</a>
+                </div>
+                <h3>Kadisco's blog</h3>
+                <p></p>
+                <a href="" class="button">Read More <i class="glyphicon glyphicon-chevron-right"></i></a> 
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="" alt="">
+                </div>
+                <div class="content">
+                    <a href=""><i></i>20 september, 2023</a>
+                </div>
+                <h3>Kadisco's blog</h3>
+                <p></p>
+                <a href="" class="button">Read More <i class="glyphicon glyphicon-chevron-right"></i></a> 
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="boxs-container">
+            <div class="box">
+                <h4>links</h4>
+                <a href=""><i class="glyphicon glyphicon-chevron-right"></i>home</a>
+                <a href=""><i class="glyphicon glyphicon-chevron-right"></i>about</a>
+                <a href=""><i class="glyphicon glyphicon-chevron-right"></i>service</a>
+                <a href=""><i class="glyphicon glyphicon-chevron-right"></i>doctor</a>
+                <a href=""><i class="glyphicon glyphicon-chevron-right"></i>consult</a>
+                <a href=""><i class="glyphicon glyphicon-chevron-right"></i>review</a>
+                <a href=""><i class="glyphicon glyphicon-chevron-right"></i>blogs</a>         
+            </div>
+            <div class="box">
+                <h4>our service</h4>
+                <a href=""><i class="glyphicon glyphicon-chevron-right"></i>dental</a>
+                <a href=""><i class="glyphicon glyphicon-chevron-right"></i>surgery</a>
+                <a href=""><i class="glyphicon glyphicon-chevron-right"></i>eye</a>
+                <a href=""><i class="glyphicon glyphicon-chevron-right"></i>internal-diagonistic</a>
+                <a href=""><i class="glyphicon glyphicon-chevron-right"></i>cardioloty</a>
+                <a href=""><i class="glyphicon glyphicon-chevron-right"></i>ambulance service</a>
+                        
+            </div>
+            <div class="box">
+                <h4>consult info</h4>
+                <a href=""><i class="bi bi-telephone"></i>011-6-29-23-24</a>
+                <a href=""><i class="bi bi-telephone"></i>011-6-29-72-73</a>
+                <a href=""></a>
+                <a href=""></a>
+            </div>
+            <div class="box">
+                <h4>follow us</h4>
+                <a href=""><i class="bi bi-facebook"></i>facebook</a>
+                <a href=""><i class="bi bi-instagram"></i>instagram</a>
+                <a href=""><i class="bi bi-telegram"></i>telegram</a>
+            </div>
+        </div>
+        <div class="done">created by <span>elsabeth</span> | all right reserved</div>
+    </section>
+    
+    
+</body>
+</html>
